@@ -11,7 +11,7 @@ const ALL_TODOS: Todo[] = [
 ];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<TodosResult>) {
-  await new Promise((res) => setTimeout(res, 2000));
+  await new Promise((res) => setTimeout(res, 1000));
 
   const filter = req.query.filter;
   res.status(200).json({ data: ALL_TODOS.filter((todo) => (filter ? todo.priority === filter : true)) });
