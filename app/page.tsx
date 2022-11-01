@@ -1,4 +1,5 @@
 import { FC, Suspense, use } from "react";
+import Link from "next/link";
 import { TodosResult } from "../types";
 import { Todos } from "./Todos";
 
@@ -15,7 +16,8 @@ type RSCProps = {
 };
 
 export default async function Page({ params, searchParams }: RSCProps) {
-  const todosPromise = getTodos(searchParams?.filter ?? "");
+  const todosPromise = await getTodos(searchParams?.filter ?? "");
+  console.log("RENDER PAGE");
 
   return (
     <main>
@@ -27,7 +29,12 @@ export default async function Page({ params, searchParams }: RSCProps) {
   );
 }
 
-const TodosList: FC<{ todosPromise: Promise<TodosResult> }> = (props) => {
-  const todos = use(props.todosPromise);
-  return <Todos todos={todos} />;
+const TodosList: FC<{ todosPromise: TodosResult }> = (props) => {
+  const todos = props.todosPromise;
+  return (
+    <section>
+      <Todos todos={todos} />
+      <Link href="/foo">Go to foo</Link>
+    </section>
+  );
 };
