@@ -3,7 +3,9 @@ import { TodosResult } from "../types";
 import { Todos } from "./Todos";
 
 async function getTodos(filter: string) {
-  const result = await fetch(`${process.env.VERCEL_URL ?? "http://localhost:3000"}/api/todos?filter=${filter}`, { cache: "no-store" });
+  const urlBase = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
+
+  const result = await fetch(`${urlBase}/api/todos?filter=${filter}`, { cache: "no-store" });
   return result.json();
 }
 
