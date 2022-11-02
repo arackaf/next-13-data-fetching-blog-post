@@ -10,6 +10,7 @@ const ALL_TODOS: Todo[] = [
 ];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<TodosResult>) {
+  console.log("requesting");
   await new Promise((res) => setTimeout(res, 1000));
 
   const filter = req.query.filter;
