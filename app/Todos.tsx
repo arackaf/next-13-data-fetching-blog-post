@@ -7,8 +7,8 @@ type Props = { todos: Promise<TodosResult>; colors: Promise<ColorsResult> };
 type TodosType = (props: Props) => any;
 
 export const Todos: TodosType = async (props: Props) => {
-  const todos = await props.todos;
-  const colors = await props.colors;
+  const todos = use(props.todos);
+  const colors = use(props.colors);
 
   return (
     <section>
