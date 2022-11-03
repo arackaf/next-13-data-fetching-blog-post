@@ -19,8 +19,8 @@ async function getColors() {
 }
 
 export default async function Page({ searchParams }: RSCProps) {
-  const todos = await getTodos(searchParams?.filter ?? "");
-  const colors = await getColors();
+  const todos = getTodos(searchParams?.filter ?? "");
+  const colors = getColors();
 
   return (
     <main>

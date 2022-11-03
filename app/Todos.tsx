@@ -1,8 +1,15 @@
-import { FC } from "react";
+import { use, ReactNode } from "react";
 import type { ColorsResult, TodosResult } from "../types";
 import { TodoListFiltersHeader } from "./TodoListFiltersHeader";
 
-export const Todos: FC<{ todos: TodosResult; colors: ColorsResult }> = ({ todos, colors }) => {
+type Props = { todos: Promise<TodosResult>; colors: Promise<ColorsResult> };
+
+type TodosType = (props: Props) => any;
+
+export const Todos: TodosType = async (props: Props) => {
+  const todos = await props.todos;
+  const colors = await props.colors;
+
   return (
     <section>
       <TodoListFiltersHeader />
