@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import Link from "next/link";
 import { Todos } from "./Todos";
+import { RSCProps } from "../types";
 
 import "./styles.css";
 
@@ -17,11 +17,6 @@ async function getColors() {
   const result = await fetch(`${urlBase}/api/colors`, { cache: "no-store" });
   return result.json();
 }
-
-type RSCProps = {
-  params: unknown;
-  searchParams: { [k: string]: string };
-};
 
 export default async function Page({ searchParams }: RSCProps) {
   const todos = await getTodos(searchParams?.filter ?? "");

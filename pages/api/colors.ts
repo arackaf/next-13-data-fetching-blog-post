@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Color, ColorsLookup, ColorsResult } from "../../types";
+import { ColorsLookup, ColorsResult } from "../../types";
 
 const ALL_COLORS: ColorsLookup = {
   Red: "#FF0000",

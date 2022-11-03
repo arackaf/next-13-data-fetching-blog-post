@@ -20,3 +20,8 @@ export type ColorsLookup = {
 export type ColorsResult = {
   data: ColorsLookup;
 };
+
+export type RSCProps = {
+  params: unknown;
+  searchParams: { [k: string]: string };
+};
