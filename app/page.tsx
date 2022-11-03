@@ -25,7 +25,7 @@ export default async function Page({ searchParams }: RSCProps) {
   return (
     <main>
       <h1>TODOs Page</h1>
-      <Suspense fallback={<span>Loading ...</span>}>
+      <Suspense fallback={<h2>Loading ...</h2>}>
         <section>
           <Todos todos={todos} colors={colors} />
         </section>
