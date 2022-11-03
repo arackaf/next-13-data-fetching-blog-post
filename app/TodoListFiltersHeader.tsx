@@ -5,15 +5,13 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
 export const TodoListFiltersHeader: FC<{}> = () => {
-  //const [filter, setFilter] = useState("");
-
   const [routing, startTransition] = useTransition();
   const [counterValue, setCounterVal] = useState(0);
 
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [filter, _setFilter] = useState<string>(searchParams.get("filter")!);
+  const [filter, _setFilter] = useState<string>(searchParams.get("filter")! ?? "");
 
   const setFilter = (val: string) => {
     _setFilter(val);

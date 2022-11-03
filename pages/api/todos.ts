@@ -2,11 +2,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { Todo, TodosResult } from "../../types";
 
 const ALL_TODOS: Todo[] = [
-  { name: "Learn Next 13 data fetching", priority: "high" },
-  { name: "Learn Next 13 RSCs", priority: "high" },
-  { name: "Learn Next 13 api routes", priority: "medium" },
-  { name: "Learn Vercel hosting dns configuration", priority: "medium" },
-  { name: "Learn JavaScript fundamentals", priority: "low" },
+  { name: "Learn Next 13 data fetching", priority: "high", color: "Blue" },
+  { name: "Learn Next 13 RSCs", priority: "high", color: "Blue" },
+  { name: "Learn Next 13 api routes", priority: "medium", color: "Green" },
+  { name: "Learn Vercel hosting dns configuration", priority: "medium", color: "Red" },
+  { name: "Learn JavaScript fundamentals", priority: "low", color: "Blue" },
 ];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<TodosResult>) {
