@@ -25,16 +25,15 @@ export const TodoListFiltersHeader: FC<{}> = () => {
       {counterValue} <button onClick={() => setCounterVal((x) => x + 1)}>Inc</button>
       Current Todos
       <hr />
-      <span>Filter:</span>
-      <select value={filter} onChange={(evt) => setFilter(evt.target.value)}>
-        <option value="">All</option>
-        <option value="high">High</option>
-        <option value="medium">Medium</option>
-        <option value="low">Low</option>
-      </select>
-      <button onClick={() => router.prefetch("/foo")}>Prefetch Foo</button>
-      <button onClick={() => router.refresh()}>REFRESH</button>
-      <button onClick={() => router.back()}>Back</button>
+      <div className="todo-filters">
+        <span>Filter:</span>
+        <select value={filter} onChange={(evt) => setFilter(evt.target.value)}>
+          <option value="">All</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
     </section>
   );
 };

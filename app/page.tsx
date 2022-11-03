@@ -1,7 +1,8 @@
-import { FC, Suspense, use } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
-import { ColorsResult, TodosResult } from "../types";
 import { Todos } from "./Todos";
+
+import "./styles.css";
 
 async function getTodos(filter: string) {
   const urlBase = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
@@ -32,7 +33,6 @@ export default async function Page({ searchParams }: RSCProps) {
       <Suspense fallback={<span>Loading ...</span>}>
         <section>
           <Todos todos={todos} colors={colors} />
-          <Link href="/foo">Go to foo</Link>
         </section>
       </Suspense>
     </main>
