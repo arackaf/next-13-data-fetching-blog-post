@@ -6,7 +6,6 @@ import { useSearchParams } from "next/navigation";
 
 export const TodoListFiltersHeader: FC<{}> = () => {
   const [routing, startTransition] = useTransition();
-  const [counterValue, setCounterVal] = useState(0);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -22,8 +21,7 @@ export const TodoListFiltersHeader: FC<{}> = () => {
 
   return (
     <section>
-      {counterValue} <button onClick={() => setCounterVal((x) => x + 1)}>Inc</button>
-      Current Todos
+      Current Todos {routing ? <span style={{ marginLeft: "5px" }}>Loading ...</span> : null}
       <hr />
       <div className="todo-filters">
         <span>Filter:</span>
